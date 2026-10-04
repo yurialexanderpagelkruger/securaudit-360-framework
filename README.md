@@ -17,10 +17,10 @@ Con herramientas de escaneo automatizado para Linux y Windows Server, esquemas d
     <tbody>
       <tr>
         <td align="center" valign="middle">
-          <img src="screenshot.gif" alt="Versión de PC" width="611" />
+          <img src="screenshot.gif" alt="Versión de PC" width="568" />
         </td>
         <td align="center" valign="middle">
-          <img src="screenshot2.gif" alt="Versión Móvil" width="193" />
+          <img src="screenshot2.gif" alt="Versión Móvil" width="180" />
         </td>
       </tr>
     </tbody>
@@ -71,3 +71,7 @@ Desde la evaluación inicial hasta la remediación y gobierno, *SecurAudit 360* 
    ```bash
    git clone [https://github.com/yurialexanderpagelkruger/securaudit-360-framework.git](https://github.com/yurialexanderpagelkruger/securaudit-360-framework.git)
    cd securaudit-360-framework
+
+## 👨‍💻 Autor
+
+Desarrollado por **Yuri Alexander Pagel Krüger**
