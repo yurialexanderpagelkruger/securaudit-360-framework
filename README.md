@@ -17,10 +17,10 @@ Con herramientas de escaneo automatizado para Linux y Windows Server, esquemas d
     <tbody>
       <tr>
         <td align="center" valign="middle">
-          <img src="screenshot.gif" alt="Versión de PC" width="568" />
+          <img src="screenshot.gif" alt="Versión de PC" width="589" />
         </td>
         <td align="center" valign="middle">
-          <img src="screenshot2.gif" alt="Versión Móvil" width="180" />
+          <img src="screenshot2.gif" alt="Versión Móvil" width="186" />
         </td>
       </tr>
     </tbody>
