@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informe de Auditoría de Ejemplo | SecurAudit 360</title>
+<style>
+  :root {
+    --ink: #f5f1e6;
+    --dim: #b0a99a;
+    --line: #2a2a31;
+    --bg: #0d0d0f;
+    --surface: #141417;
+    --high: #ff5252;
+    --med: #ffb020;
+    --low: #35c98a;
+    --accent: #ffc107;
+    --shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Georgia, "Times New Roman", serif; color: var(--ink); background: var(--bg); line-height: 1.65; }
+  .page { max-width: 900px; margin: 0 auto; background: var(--surface); padding: 60px 70px; box-shadow: var(--shadow); }
+  header { border-bottom: 3px solid var(--accent); padding-bottom: 22px; margin-bottom: 34px; }
+  .brand-line { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; flex-wrap: wrap; }
+  h1 { font-size: 1.9rem; letter-spacing: -0.5px; }
+  .meta { color: var(--dim); font-size: 0.85rem; font-family: Arial, sans-serif; text-align: right; }
+  h2 { font-size: 1.15rem; margin: 34px 0 12px; border-left: 4px solid var(--accent); padding-left: 12px; }
+  p { margin-bottom: 12px; font-size: 0.95rem; }
+  .lead { color: var(--dim); }
+  .summary-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 20px 0; }
+  .summary-box { border: 1px solid var(--line); border-radius: 8px; padding: 16px; text-align: center; background: #1c1c21; }
+  .summary-box .n { font-size: 1.8rem; font-weight: 700; font-family: Arial, sans-serif; }
+  .summary-box .l { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--dim); font-family: Arial, sans-serif; }
+  .n.high { color: var(--high); } .n.med { color: var(--med); } .n.low { color: var(--low); }
+  table { width: 100%; border-collapse: collapse; margin: 18px 0; font-family: Arial, sans-serif; font-size: 0.82rem; }
+  th, td { border: 1px solid var(--line); padding: 9px 11px; text-align: left; vertical-align: top; }
+  th { background: #1c1c21; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.8px; color: var(--accent); }
+  .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-weight: 700; font-size: 0.72rem; color: #0d0d0f; }
+  .tag.alto { background: var(--high); color: #fff; }
+  .tag.medio { background: var(--med); }
+  .tag.bajo { background: var(--low); }
+  .plan li { margin-bottom: 8px; font-size: 0.93rem; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 0.78rem; color: var(--dim); font-family: Arial, sans-serif; }
+  @media print { body { background: #fff; } .page { background: #fff; color: #1a2233; box-shadow: none; padding: 0; } th { color: #1a2233; background: #f5f7fb; } }
+  @media (max-width: 640px) { .page { padding: 32px 22px; } .summary-grid { grid-template-columns: 1fr; } .meta { text-align: left; } }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="brand-line">
+      <div>
+        <h1>Informe de Auditoría de Seguridad</h1>
+        <p class="lead">Hardening, Control de Accesos, Continuidad Operativa (BCP)</p>
+      </div>
+      <div class="meta">
+        <div>Informe N.º SA-360-001</div>
+        <div>Cliente: [Anonimizado]</div>
+        <div>Fecha: 2026-10-04</div>
+        <div>Clasificación: Confidencial</div>
+      </div>
+    </div>
+  </header>
+
+  <h2>1. Resumen ejecutivo</h2>
+  <p>Se realizó una auditoría de seguridad sobre la infraestructura del cliente, abarcando endurecimiento de sistemas (Linux y Windows Server), política de respaldos, control de accesos (RBAC), monitoreo de red y capacidad de continuidad operativa (BCP). El objetivo fue determinar el nivel de exposición actual, identificar debilidades críticas y entregar un plan de remediación priorizado por riesgo de negocio.</p>
+  <p>Del análisis surgieron ocho hallazgos: tres de riesgo Alto, tres de riesgo Medio y dos de riesgo Bajo. Los de mayor criticidad se concentran en la ausencia de autenticación multifactor en accesos remotos, respaldos sin verificación de integridad y sistemas operativos sin parches recientes. Estos tres puntos, en conjunto, representan la ruta más probable hacia un incidente de cifrado de archivos o filtración de datos con impacto operativo severo.</p>
+
+  <div class="summary-grid">
+    <div class="summary-box">
+      <div class="n high">3</div>
+      <div class="l">Riesgo Alto</div>
+    </div>
+    <div class="summary-box">
+      <div class="n med">3</div>
+      <div class="l">Riesgo Medio</div>
+    </div>
+    <div class="summary-box">
+      <div class="n low">2</div>
+      <div class="l">Riesgo Bajo</div>
+    </div>
+  </div>
+
+  <h2>2. Alcance y metodología</h2>
+  <p>El alcance comprendió servidores, estaciones de trabajo, dispositivos de red y servicios expuestos. La metodología se estructuró en cinco fases: relevamiento de activos y accesos, evaluación técnica de configuraciones, clasificación de hallazgos por riesgo, definición del plan de remediación y diseño del plan de continuidad operativa.</p>
+  <p>Cada hallazgo fue valorado según probabilidad de explotación e impacto sobre el negocio, aplicando el principio de mínimo privilegio y las buenas prácticas de hardening reconocidas para Linux y Windows Server.</p>
+
+  <h2>3. Tabla de hallazgos</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Hallazgo</th>
+        <th>Categoría</th>
+        <th>Riesgo</th>
+        <th>Impacto</th>
+        <th>Remediación</th>
+        <th>Plazo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>H-01</td>
+        <td>Sin autenticación multifactor en accesos remotos</td>
+        <td>Control de accesos</td>
+        <td><span class="tag alto">Alto</span></td>
+        <td>Compromiso total de cuentas</td>
+        <td>Implementar MFA y VPN con RBAC</td>
+        <td>7 días</td>
+      </tr>
+      <tr>
+        <td>H-02</td>
+        <td>Backups sin verificación de integridad</td>
+        <td>Continuidad</td>
+        <td><span class="tag alto">Alto</span></td>
+        <td>Pérdida de datos irrecuperable</td>
+        <td>Política 3-2-1 + pruebas de restauración</td>
+        <td>14 días</td>
+      </tr>
+      <tr>
+        <td>H-06</td>
+        <td>Sistemas operativos sin parches recientes</td>
+        <td>Hardening</td>
+        <td><span class="tag alto">Alto</span></td>
+        <td>Explotación de vulnerabilidades conocidas</td>
+        <td>Gestión de parches y ventana mensual</td>
+        <td>10 días</td>
+      </tr>
+      <tr>
+        <td>H-03</td>
+        <td>Puertos y servicios innecesarios expuestos</td>
+        <td>Hardening</td>
+        <td><span class="tag medio">Medio</span></td>
+        <td>Superficie de ataque ampliada</td>
+        <td>Cierre de puertos y hardening de servicios</td>
+        <td>21 días</td>
+      </tr>
+      <tr>
+        <td>H-04</td>
+        <td>Falta de monitoreo de red</td>
+        <td>Monitoreo</td>
+        <td><span class="tag medio">Medio</span></td>
+        <td>Detección tardía de intrusiones</td>
+        <td>Implementar IDS/IPS y alertas</td>
+        <td>30 días</td>
+      </tr>
+      <tr>
+        <td>H-07</td>
+        <td>Sin plan de continuidad documentado (BCP)</td>
+        <td>Continuidad</td>
+        <td><span class="tag medio">Medio</span></td>
+        <td>Interrupción prolongada del negocio</td>
+        <td>Redactar y probar BCP/DRP</td>
+        <td>40 días</td>
+      </tr>
+      <tr>
+        <td>H-05</td>
+        <td>Políticas de acceso no documentadas</td>
+        <td>Gobierno</td>
+        <td><span class="tag bajo">Bajo</span></td>
+        <td>Inconsistencia operativa</td>
+        <td>Documentar RBAC y revisar permisos</td>
+        <td>45 días</td>
+      </tr>
+      <tr>
+        <td>H-08</td>
+        <td>Cuentas de usuario sin revisión periódica</td>
+        <td>Control de accesos</td>
+        <td><span class="tag bajo">Bajo</span></td>
+        <td>Privilegios acumulados innecesarios</td>
+        <td>Revisión trimestral de accesos</td>
+        <td>60 días</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>4. Análisis de riesgos críticos</h2>
+  <p><strong>Riesgo Alto — Accesos remotos sin MFA (H-01).</strong> La ausencia de un segundo factor de autenticación permite que credenciales filtradas o reutilizadas otorguen acceso directo a la infraestructura. Es el vector más frecuente en incidentes de ransomware de los últimos años.</p>
+  <p><strong>Riesgo Alto — Backups sin verificación (H-02).</strong> Un respaldo que no se prueba no es un respaldo. Sin verificación de integridad ni pruebas de restauración, la recuperación ante un cifrado masivo queda a merced de copias potencialmente corruptas o incompletas.</p>
+  <p><strong>Riesgo Alto — Sistemas sin parches (H-06).</strong> Las vulnerabilidades conocidas y no remediadas son explotadas de forma automatizada. Mantener sistemas desactualizados equivale a dejar una puerta abierta documentada públicamente.</p>
+
+  <h2>5. Plan de remediación priorizado</h2>
+  <ol class="plan">
+    <li><strong>Días 1 a 7 —</strong> Implementar MFA en todos los accesos remotos y segmentar la VPN con RBAC (H-01).</li>
+    <li><strong>Días 1 a 10 —</strong> Establecer gestión de parches con ventana mensual y despliegue priorizado por criticidad (H-06).</li>
+    <li><strong>Días 8 a 14 —</strong> Formalizar la política de backups 3-2-1 y ejecutar la primera prueba de restauración documentada (H-02).</li>
+    <li><strong>Días 15 a 21 —</strong> Cerrar puertos y servicios innecesarios y aplicar hardening a los servicios restantes (H-03).</li>
+    <li><strong>Días 22 a 30 —</strong> Desplegar monitoreo de red con IDS/IPS y alertas tempranas (H-04).</li>
+    <li><strong>Días 31 a 40 —</strong> Redactar y probar el plan de continuidad operativa y recuperación ante desastres (H-07).</li>
+    <li><strong>Días 41 a 60 —</strong> Documentar políticas de RBAC, revisar privilegios y establecer revisión trimestral de accesos (H-05, H-08).</li>
+  </ol>
+
+  <h2>6. Plan de continuidad operativa (BCP)</h2>
+  <p>El plan de continuidad define los procedimientos para mantener la operación ante un incidente mayor. Incluye identificación de procesos críticos, objetivos de tiempo de recuperación (RTO) y de punto de recuperación (RPO), roles y responsabilidades, y el procedimiento de activación del DRP.</p>
+  <p>Se recomienda ejecutar simulacros semestrales de recuperación para validar la efectividad del plan y ajustar los tiempos comprometidos con el negocio.</p>
+
+  <h2>7. Conclusión</h2>
+  <p>La organización presenta debilidades relevantes pero remediables. Cumpliendo el plan priorizado en un plazo de sesenta días, es posible reducir de forma sustancial la probabilidad de un incidente con impacto operativo, alinear los controles con buenas prácticas de seguridad y garantizar la continuidad del negocio frente a escenarios de cifrado de archivos o filtración de datos.</p>
+
+  <footer>
+    <p>SecurAudit 360 — Informe N.º SA-360-001 · Cliente [Anonimizado] · Documento confidencial de uso exclusivo del destinatario.</p>
+    <p>Este informe es un ejemplo anonimizado con fines demostrativos y no representa datos reales de ninguna organización.</p>
+  </footer>
+</div>
+</body>
+</html>

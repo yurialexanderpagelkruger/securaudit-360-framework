@@ -1,0 +1,74 @@
+[
+  {
+    "id": "H-01",
+    "hallazgo": "Sin autenticación multifactor en accesos remotos",
+    "categoria": "Control de accesos",
+    "riesgo": "Alto",
+    "impacto": "Compromiso total de cuentas",
+    "remediacion": "Implementar MFA y VPN con RBAC",
+    "plazo": "7 días"
+  },
+  {
+    "id": "H-02",
+    "hallazgo": "Backups sin verificación de integridad",
+    "categoria": "Continuidad",
+    "riesgo": "Alto",
+    "impacto": "Pérdida de datos irrecuperable",
+    "remediacion": "Política 3-2-1 + pruebas de restauración",
+    "plazo": "14 días"
+  },
+  {
+    "id": "H-03",
+    "hallazgo": "Puertos y servicios innecesarios expuestos",
+    "categoria": "Hardening",
+    "riesgo": "Medio",
+    "impacto": "Superficie de ataque ampliada",
+    "remediacion": "Cierre de puertos y hardening de servicios",
+    "plazo": "21 días"
+  },
+  {
+    "id": "H-04",
+    "hallazgo": "Falta de monitoreo de red",
+    "categoria": "Monitoreo",
+    "riesgo": "Medio",
+    "impacto": "Detección tardía de intrusiones",
+    "remediacion": "Implementar IDS/IPS y alertas",
+    "plazo": "30 días"
+  },
+  {
+    "id": "H-05",
+    "hallazgo": "Políticas de acceso no documentadas",
+    "categoria": "Gobierno",
+    "riesgo": "Bajo",
+    "impacto": "Inconsistencia operativa",
+    "remediacion": "Documentar RBAC y revisar permisos",
+    "plazo": "45 días"
+  },
+  {
+    "id": "H-06",
+    "hallazgo": "Sistemas operativos sin parches recientes",
+    "categoria": "Hardening",
+    "riesgo": "Alto",
+    "impacto": "Explotación de vulnerabilidades conocidas",
+    "remediacion": "Gestión de parches y ventana mensual",
+    "plazo": "10 días"
+  },
+  {
+    "id": "H-07",
+    "hallazgo": "Sin plan de continuidad documentado (BCP)",
+    "categoria": "Continuidad",
+    "riesgo": "Medio",
+    "impacto": "Interrupción prolongada del negocio",
+    "remediacion": "Redactar y probar BCP/DRP",
+    "plazo": "40 días"
+  },
+  {
+    "id": "H-08",
+    "hallazgo": "Cuentas de usuario sin revisión periódica",
+    "categoria": "Control de accesos",
+    "riesgo": "Bajo",
+    "impacto": "Privilegios acumulados innecesarios",
+    "remediacion": "Revisión trimestral de accesos",
+    "plazo": "60 días"
+  }
+]
