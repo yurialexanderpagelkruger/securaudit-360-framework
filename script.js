@@ -2,6 +2,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+  const themeBtn = document.getElementById('theme-toggle');
+  if (themeBtn) {
+    themeBtn.addEventListener('click', () => {
+      if (window.toggleTheme) window.toggleTheme();
+    });
+  }
+
   const navToggle = document.querySelector('.nav-toggle');
   const siteNav = document.querySelector('.site-nav');
   if (navToggle && siteNav) {
@@ -84,13 +91,20 @@ document.addEventListener('DOMContentLoaded', () => {
       const email = form.email.value.trim();
       const mensaje = form.mensaje.value.trim();
       const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      const lang = window.__sa360_lang || 'en';
+      const msgs = {
+        en: { err: 'Please complete all fields with a valid email.', ok: 'Inquiry sent. We will contact you shortly.' },
+        es: { err: 'Completá todos los campos con un correo válido.', ok: 'Consulta enviada. Nos pondremos en contacto a la brevedad.' },
+        pt: { err: 'Preencha todos os campos com um e-mail válido.', ok: 'Consulta enviada. Entraremos em contato em breve.' }
+      };
+      const m = msgs[lang] || msgs.en;
       status.classList.remove('error');
       if (!nombre || !emailOk || !mensaje) {
         status.classList.add('error');
-        status.textContent = 'Completá todos los campos con un correo válido.';
+        status.textContent = m.err;
         return;
       }
-      status.textContent = 'Consulta enviada. Nos pondremos en contacto a la brevedad.';
+      status.textContent = m.ok;
       form.reset();
     });
   }

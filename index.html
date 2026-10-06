@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="SecurAudit 360 - Marco de Auditoría de Seguridad, Hardening y Plan de Continuidad Operativa (BCP)">
+<meta name="description" content="SecurAudit 360 - Security Audit, Hardening and Business Continuity Framework (BCP)">
 <meta name="author" content="SecurAudit 360">
-<title>SecurAudit 360 | Auditoría de Seguridad y Continuidad de Negocio</title>
+<title>SecurAudit 360 | Security Audit & Business Continuity</title>
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<script src="theme.js"></script>
+<script src="i18n.js"></script>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -16,15 +18,26 @@
       <img src="assets/favicon.svg" alt="SecurAudit 360" class="brand-logo">
       <span class="brand-name">SecurAudit 360</span>
     </a>
-    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+    <div class="header-controls">
+      <select id="lang-selector" class="control-select" aria-label="Language">
+        <option value="en">EN</option>
+        <option value="es">ES</option>
+        <option value="pt">PT</option>
+      </select>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" type="button">
+        <span class="icon-sun">☀</span>
+        <span class="icon-moon">☾</span>
+      </button>
+    </div>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
-    <nav class="site-nav" aria-label="Navegación principal">
+    <nav class="site-nav" aria-label="Main navigation">
       <ul>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#metodologia">Metodología</a></li>
-        <li><a href="#informe">Informe</a></li>
-        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="#servicios" data-i18n="nav_services">Services</a></li>
+        <li><a href="#metodologia" data-i18n="nav_methodology">Methodology</a></li>
+        <li><a href="#informe" data-i18n="nav_report">Report</a></li>
+        <li><a href="#contacto" data-i18n="nav_contact">Contact</a></li>
       </ul>
     </nav>
   </div>
@@ -34,65 +47,61 @@
   <section id="inicio" class="hero">
     <div class="container hero-inner">
       <div class="hero-text">
-        <p class="eyebrow">Auditoría · Hardening · Continuidad</p>
-        <h1>¿Sabés qué tan expuesta está tu empresa ante un incidente?</h1>
-        <p class="hero-sub">
-          SecurAudit 360 audita tu infraestructura, endurece tus sistemas y diseña un plan de
-          continuidad operativa (BCP) para que un cifrado de archivos o una filtración de datos
-          no detenga tu negocio.
-        </p>
+        <p class="eyebrow" data-i18n="eyebrow">Audit · Hardening · Continuity</p>
+        <h1 data-i18n="hero_title">Do you know how exposed your company is to an incident?</h1>
+        <p class="hero-sub" data-i18n="hero_sub">SecurAudit 360 audits your infrastructure, hardens your systems and designs a Business Continuity Plan (BCP) so that file encryption or a data breach never stops your business.</p>
         <div class="hero-actions">
-          <a href="#contacto" class="btn btn-primary">Solicitar auditoría</a>
-          <a href="#informe" class="btn btn-ghost">Ver informe de ejemplo</a>
+          <a href="#contacto" class="btn btn-primary" data-i18n="btn_request">Request audit</a>
+          <a href="#informe" class="btn btn-ghost" data-i18n="btn_view_report">View sample report</a>
         </div>
         <ul class="hero-tags">
-          <li>Estudios contables</li>
-          <li>Estudios jurídicos</li>
-          <li>Clínicas</li>
-          <li>Datos sensibles</li>
+          <li data-i18n="tag_1">Accounting firms</li>
+          <li data-i18n="tag_2">Law firms</li>
+          <li data-i18n="tag_3">Clinics</li>
+          <li data-i18n="tag_4">Sensitive data</li>
         </ul>
       </div>
       <aside class="hero-card">
-        <h2>Riesgo sin gestión</h2>
+        <h2 data-i18n="risk_title">Risk without management</h2>
         <ul class="risk-list">
-          <li><span class="risk-dot high"></span> Datos cifrados sin respaldo útil</li>
-          <li><span class="risk-dot high"></span> Accesos sin control (RBAC ausente)</li>
-          <li><span class="risk-dot med"></span> Backups sin verificación</li>
-          <li><span class="risk-dot med"></span> Sin monitoreo de red</li>
-          <li><span class="risk-dot low"></span> Falta de políticas formales</li>
+          <li><span class="risk-dot high"></span> <span data-i18n="risk_1">Encrypted data with no usable backup</span></li>
+          <li><span class="risk-dot high"></span> <span data-i18n="risk_2">Access without control (no RBAC)</span></li>
+          <li><span class="risk-dot med"></span> <span data-i18n="risk_3">Backups without verification</span></li>
+          <li><span class="risk-dot med"></span> <span data-i18n="risk_4">No network monitoring</span></li>
+          <li><span class="risk-dot low"></span> <span data-i18n="risk_5">Missing formal policies</span></li>
         </ul>
-        <p class="hero-card-foot">Multas, pérdida operativa y daño reputacional.</p>
+        <p class="hero-card-foot" data-i18n="risk_foot">Fines, operational loss and reputational damage.</p>
       </aside>
     </div>
   </section>
 
   <section id="servicios" class="section">
     <div class="container">
-      <h2 class="section-title">Qué incluye SecurAudit 360</h2>
+      <h2 class="section-title" data-i18n="services_title">What SecurAudit 360 includes</h2>
       <div class="grid grid-3">
         <article class="card">
-          <h3>Hardening de sistemas</h3>
-          <p>Checklist de endurecimiento para Linux y Windows Server: servicios, cuentas, políticas, puertos y actualizaciones.</p>
+          <h3 data-i18n="s1_t">System hardening</h3>
+          <p data-i18n="s1_d">Hardening checklist for Linux and Windows Server: services, accounts, policies, ports and updates.</p>
         </article>
         <article class="card">
-          <h3>Backups 3-2-1</h3>
-          <p>Política de respaldo con backup automatizado y verificación de integridad para asegurar la recuperación.</p>
+          <h3 data-i18n="s2_t">3-2-1 Backups</h3>
+          <p data-i18n="s2_d">Backup policy with automated backup and integrity verification to ensure recovery.</p>
         </article>
         <article class="card">
-          <h3>Control de accesos (RBAC)</h3>
-          <p>Gestión de usuarios, roles y permisos bajo el principio de mínimo privilegio.</p>
+          <h3 data-i18n="s3_t">Access control (RBAC)</h3>
+          <p data-i18n="s3_d">User, role and permission management under the principle of least privilege.</p>
         </article>
         <article class="card">
-          <h3>Monitoreo de red</h3>
-          <p>Vigilancia de tráfico y detección de accesos anómalos con alertas tempranas.</p>
+          <h3 data-i18n="s4_t">Network monitoring</h3>
+          <p data-i18n="s4_d">Traffic surveillance and detection of anomalous access with early alerts.</p>
         </article>
         <article class="card">
-          <h3>Plan de continuidad (BCP)</h3>
-          <p>Diseño del plan de continuidad operativa y recuperación ante desastres (DRP).</p>
+          <h3 data-i18n="s5_t">Continuity plan (BCP)</h3>
+          <p data-i18n="s5_d">Design of the Business Continuity Plan and Disaster Recovery Plan (DRP).</p>
         </article>
         <article class="card">
-          <h3>Informe priorizado</h3>
-          <p>Hallazgos con nivel de riesgo Alto/Medio/Bajo y plan de remediación ordenado por prioridad.</p>
+          <h3 data-i18n="s6_t">Prioritized report</h3>
+          <p data-i18n="s6_d">Findings with High/Medium/Low risk level and a remediation plan ordered by priority.</p>
         </article>
       </div>
     </div>
@@ -100,27 +109,27 @@
 
   <section id="metodologia" class="section section-alt">
     <div class="container">
-      <h2 class="section-title">Metodología</h2>
+      <h2 class="section-title" data-i18n="methodology_title">Methodology</h2>
       <ol class="timeline">
         <li>
           <span class="step">01</span>
-          <div><h3>Relevamiento</h3><p>Inventario de activos, accesos y procesos críticos.</p></div>
+          <div><h3 data-i18n="m1_t">Reconnaissance</h3><p data-i18n="m1_d">Inventory of assets, access and critical processes.</p></div>
         </li>
         <li>
           <span class="step">02</span>
-          <div><h3>Auditoría</h3><p>Evaluación de hardening, accesos, backups y red.</p></div>
+          <div><h3 data-i18n="m2_t">Audit</h3><p data-i18n="m2_d">Assessment of hardening, access, backups and network.</p></div>
         </li>
         <li>
           <span class="step">03</span>
-          <div><h3>Hallazgos</h3><p>Clasificación por riesgo y exposición al negocio.</p></div>
+          <div><h3 data-i18n="m3_t">Findings</h3><p data-i18n="m3_d">Classification by risk and business exposure.</p></div>
         </li>
         <li>
           <span class="step">04</span>
-          <div><h3>Remediación</h3><p>Plan de acción priorizado con responsables y plazos.</p></div>
+          <div><h3 data-i18n="m4_t">Remediation</h3><p data-i18n="m4_d">Prioritized action plan with owners and deadlines.</p></div>
         </li>
         <li>
           <span class="step">05</span>
-          <div><h3>Continuidad</h3><p>BCP y DRP documentados y probados.</p></div>
+          <div><h3 data-i18n="m5_t">Continuity</h3><p data-i18n="m5_d">Documented and tested BCP and DRP.</p></div>
         </li>
       </ol>
     </div>
@@ -128,34 +137,32 @@
 
   <section id="informe" class="section">
     <div class="container">
-      <h2 class="section-title">Informe de auditoría de ejemplo</h2>
-      <p class="section-intro">
-        Documento anonimizado con hallazgos clasificados por riesgo y su plan de acción.
-      </p>
-      <div class="filters" role="group" aria-label="Filtrar hallazgos por riesgo">
-        <button class="filter-btn active" data-filter="all">Todos</button>
-        <button class="filter-btn" data-filter="alto">Alto</button>
-        <button class="filter-btn" data-filter="medio">Medio</button>
-        <button class="filter-btn" data-filter="bajo">Bajo</button>
+      <h2 class="section-title" data-i18n="report_title">Sample audit report</h2>
+      <p class="section-intro" data-i18n="report_intro">Anonymized document with findings classified by risk and their action plan.</p>
+      <div class="filters" role="group" aria-label="Filter findings by risk">
+        <button class="filter-btn active" data-filter="all" data-i18n="filter_all">All</button>
+        <button class="filter-btn" data-filter="alto" data-i18n="filter_high">High</button>
+        <button class="filter-btn" data-filter="medio" data-i18n="filter_med">Medium</button>
+        <button class="filter-btn" data-filter="bajo" data-i18n="filter_low">Low</button>
       </div>
       <div class="table-wrap">
         <table class="findings-table">
           <thead>
             <tr>
-              <th>ID</th>
-              <th>Hallazgo</th>
-              <th>Categoría</th>
-              <th>Riesgo</th>
-              <th>Impacto</th>
-              <th>Remediación</th>
-              <th>Plazo</th>
+              <th data-i18n="th_id">ID</th>
+              <th data-i18n="th_finding">Finding</th>
+              <th data-i18n="th_category">Category</th>
+              <th data-i18n="th_risk">Risk</th>
+              <th data-i18n="th_impact">Impact</th>
+              <th data-i18n="th_remediation">Remediation</th>
+              <th data-i18n="th_deadline">Deadline</th>
             </tr>
           </thead>
           <tbody id="findings-body"></tbody>
         </table>
       </div>
       <div class="report-actions">
-        <a href="docs/informe.html" class="btn btn-primary">Abrir informe completo</a>
+        <a href="docs/informe.html" class="btn btn-primary" data-i18n="btn_open_report">Open full report</a>
       </div>
     </div>
   </section>
@@ -164,28 +171,28 @@
 <footer id="contacto" class="site-footer">
   <div class="container footer-inner">
     <div>
-      <h2>Contacto</h2>
-      <p>Auditá, endurecé y asegurá la continuidad de tu negocio.</p>
+      <h2 data-i18n="contact_title">Contact</h2>
+      <p data-i18n="contact_sub">Audit, harden and secure your business continuity.</p>
     </div>
     <form class="contact-form" id="contact-form" novalidate>
       <div class="field">
-        <label for="nombre">Nombre</label>
+        <label for="nombre" data-i18n="label_name">Name</label>
         <input id="nombre" name="nombre" type="text" required>
       </div>
       <div class="field">
-        <label for="email">Correo</label>
+        <label for="email" data-i18n="label_email">Email</label>
         <input id="email" name="email" type="email" required>
       </div>
       <div class="field">
-        <label for="mensaje">Mensaje</label>
+        <label for="mensaje" data-i18n="label_message">Message</label>
         <textarea id="mensaje" name="mensaje" rows="3" required></textarea>
       </div>
-      <button type="submit" class="btn btn-primary">Enviar consulta</button>
+      <button type="submit" class="btn btn-primary" data-i18n="btn_send">Send inquiry</button>
       <p class="form-status" id="form-status" role="status"></p>
     </form>
   </div>
   <div class="container footer-bottom">
-    <p>&copy; <span id="year"></span> SecurAudit 360. Todos los derechos reservados.</p>
+    <p>&copy; <span id="year"></span> SecurAudit 360. <span data-i18n="footer_rights">All rights reserved.</span></p>
   </div>
 </footer>
 

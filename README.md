@@ -1,77 +1,92 @@
 # SecurAudit 360
 
-**SecurAudit 360** es un marco integral de auditoría de seguridad perimetral, directivas de hardening y planificación de continuidad de negocio (BCP/DRP) diseñado para entornos corporativos y PyMEs que procesan información sensible. Diseñado específicamente para consultores TI, administradores de sistemas y directores de tecnología, *SecurAudit 360* elimina la incertidumbre operativa y reemplaza prácticas reactivas por diagnósticos cuantificables, controles de acceso granulares y políticas de resiliencia verificadas.
+**SecurAudit 360** is a comprehensive perimeter security auditing, hardening policy, and business continuity planning (BCP/DRP) framework designed for enterprise environments and SMBs handling sensitive information. Specifically engineered for IT consultants, systems administrators, and technology directors, *SecurAudit 360* eliminates operational ambiguity and replaces reactive measures with quantifiable diagnostics, granular access controls, and validated resilience strategies.
 
-Con herramientas de escaneo automatizado para Linux y Windows Server, esquemas de respaldo bajo la regla 3-2-1, detección de anomalías de red en tiempo real y matrices de roles (RBAC), el proyecto permite identificar vectores críticos de exposición a ransomware, asegurar cumplimiento normativo y estructurar planes de remediación priorizados por impacto de negocio.
+Featuring automated scanning tools for Linux and Windows Server, 3-2-1 backup implementations, real-time network anomaly detection, and Role-Based Access Control (RBAC) matrices, the platform enables teams to pinpoint critical ransomware exposure vectors, ensure regulatory compliance, and deploy remediation roadmaps prioritized by business impact.
 
-### 📸 Capturas de pantalla
+---
+
+### 📸 Screenshots
 
 <div align="center">
   <table border="0">
     <thead>
       <tr>
-        <th align="center">Versión de PC</th>
-        <th align="center">Versión Móvil</th>
+        <th align="center">Desktop Version</th>
+        <th align="center">Mobile Version</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td align="center" valign="middle">
-          <img src="screenshot.gif" alt="Versión de PC" width="589" />
+          <img src="screenshot.gif" alt="Desktop Version" width="589" />
         </td>
         <td align="center" valign="middle">
-          <img src="screenshot2.gif" alt="Versión Móvil" width="186" />
+          <img src="screenshot2.gif" alt="Mobile Version" width="186" />
         </td>
       </tr>
     </tbody>
   </table>
 </div>
 
-## ✨ Características Principales
+---
 
-* **Diagnóstico de Vulnerabilidades Automatizado:** Script de auditoría sin dependencias externas que inspecciona puertos abiertos, cuentas con privilegios, configuración SSH, permisos en archivos del sistema y parches pendientes.
+## ✨ Key Features
 
-* **Estrategia de Respaldo 3-2-1 Cifrada:** Motor automatizado en Bash con compresión Zstandard (`zstd`), cifrado de extremo a extremo mediante OpenSSL (AES-256-CBC), firmas criptográficas SHA-256 y replicación offsite inmutable (`rsync`).
+* **Multi-Language Support (i18n):** Fully localized interface supporting 3 languages: English, Spanish, and Portuguese, ensuring seamless operation for distributed cybersecurity teams.
 
-* **Matriz de Control de Acceso RBAC:** Esquema estandarizado de privilegios mínimos (PoLP) y segregación de funciones para usuarios, operadores, desarrolladores y auditores, evitando movimientos laterales no autorizados.
+* **Adaptive Theming (Dark & Light Mode):** Dynamic UI theme switching supporting both Dark and Light modes, optimized for high-contrast viewing in Security Operations Centers (SOC) as well as bright office environments.
 
-* **Monitoreo Perimetral y Accesos Anómalos:** Colector de eventos en tiempo real para detección automática de ataques de fuerza bruta sobre servicios expuestos y bloqueo reactivo inmediato por firewall.
+* **Automated Vulnerability Diagnostics:** Dependency-free audit script evaluating open ports, privileged accounts, SSH configurations, system file permissions, and pending security patches.
 
-* **Checklist de Hardening Multiplataforma:** Guía técnica estructurada paso a paso para aseguramiento del kernel, red y servicios en servidores Linux (Debian/RHEL) y Windows Server.
+* **Encrypted 3-2-1 Backup Strategy:** Automated Bash engine featuring Zstandard (`zstd`) compression, end-to-end encryption via OpenSSL (AES-256-CBC), cryptographic SHA-256 integrity verification, and immutable offsite replication (`rsync`).
 
-* **Informe de Continuidad de Negocio (BCP):** Plantilla ejecutiva con matriz de hallazgos clasificada en Alto, Medio y Bajo, impacto operacional cuantificable y plan de mitigación en tres fases.
+* **RBAC Access Control Matrix:** Standardized Principle of Least Privilege (PoLP) and segregation-of-duties schema for users, operators, developers, and auditors, preventing lateral movement across corporate assets.
 
-## ⚙️ ¿Qué Hace? (Módulos Disponibles)
+* **Perimeter Monitoring & Anomaly Detection:** Real-time log parser that identifies brute-force attacks against exposed services and automatically applies proactive firewall blocking rules.
 
-Desde la evaluación inicial hasta la remediación y gobierno, *SecurAudit 360* implementa los siguientes componentes:
+* **Multi-Platform Hardening Checklist:** Step-by-step technical implementation guide for OS kernel, networking, and service hardening across Linux distributions (Debian/RHEL) and Windows Server.
 
-1. **Escáner de Auditoría Local (`scripts/linux_audit_scanner.sh`):** Ejecuta revisiones exhaustivas sobre cuentas root, permisos críticos (`/etc/shadow`, `/etc/sudoers`), puertos en escucha, firewall activo y binarios con bits SUID/SGID.
+* **Business Continuity Planning (BCP) Reporting:** Executive template featuring a prioritized findings matrix (High, Medium, Low), quantified operational risk impacts, and a three-phase remediation roadmap.
 
-2. **Orquestador de Backups 3-2-1 (`scripts/backup_321_engine.sh`):** Genera copias de directorios sensibles, empaqueta, cifra con llave dedicada, valida sumas SHA-256, replica a un destino remoto aislado y purga históricos según la política de retención.
+---
 
-3. **Detector de Anomalías e Intrusión (`scripts/network_anomaly_detector.sh`):** Inspecciona los registros del sistema de autenticación en busca de patrones sospechosos e inserta reglas preventivas en el firewall (UFW/iptables) en caso de superar el umbral de fallos.
+## ⚙️ What It Does (Available Modules)
 
-4. **Matriz de Privilegios y Gobernanza (`policies/rbac_access_matrix.md`):** Establece los niveles de acceso formal a consola, bases de datos y registros según el rol operativo asignado.
+From initial assessment to proactive remediation and governance, *SecurAudit 360* deploys the following core components:
 
-5. **Informe Modelo de Auditoría Técnica (`audit/audit_report_sample.md`):** Documento formal de entrega para gerencia o auditoría externa que detalla vulnerabilidades encontradas, riesgos asociados y hoja de ruta correctiva.
+1. **Local Audit Scanner (`scripts/linux_audit_scanner.sh`):** Executes rigorous audits against root accounts, high-risk permissions (`/etc/shadow`, `/etc/sudoers`), listening sockets, active firewall configurations, and binaries with SUID/SGID bits set.
 
-## 🛠️ Tecnologías Utilizadas
+2. **Web Dashboard & UI Theming Layer:** Responsive monitoring front-end providing seamless localization across 3 languages (English, Spanish, Portuguese) alongside dynamic Dark/Light theme toggles.
 
-* **Sistemas Operativos:** Linux (Debian 12 / RHEL 9) y directivas de endurecimiento para Windows Server.
+3. **3-2-1 Backup Orchestrator (`scripts/backup_321_engine.sh`):** Archives sensitive directories, compresses payloads, applies dedicated key encryption, verifies SHA-256 checksums, replicates archives to an isolated remote host, and enforces retention lifecycle policies.
 
-* **Criptografía y Redes:** OpenSSL (AES-256-CBC), OpenSSH, UFW, Iptables, Rsync.
+4. **Anomaly & Intrusion Detector (`scripts/network_anomaly_detector.sh`):** Scans system authentication logs for adversarial access attempts and injects real-time preventive rules into local firewalls (UFW/iptables) upon threshold breaches.
 
-* **Automatización y Scripts:** Bash corporativo (estándar `set -Eeuo pipefail`), GNU Coreutils, `zstd`.
+5. **Privilege Matrix & Governance (`policies/rbac_access_matrix.md`):** Formally defines access levels across shell consoles, database instances, and audit logs according to assigned operational responsibilities.
 
-* **Estándares y Marcos de Referencia:** CIS Benchmarks, ISO/IEC 27001, NIST Cybersecurity Framework.
+6. **Audit Report Template (`audit/audit_report_sample.md`):** Executive delivery document designed for management and external auditors detailing identified vulnerabilities, operational risk ratings, and mitigation milestones.
 
-## 🚀 Instalación y Uso
+---
 
-1. Clonar el repositorio en el servidor destino:
+## 🛠️ Tech Stack
+
+* **Operating Systems:** Linux (Debian 12 / RHEL 9) and Windows Server hardening baselines.
+* **Frontend & Theming:** Semantic HTML5, CSS3 with responsive Dark and Light theme variables, and client-side JavaScript.
+* **Internationalization:** Multi-language catalog support (English, Spanish, Portuguese).
+* **Cryptography & Networking:** OpenSSL (AES-256-CBC), OpenSSH, UFW, Iptables, Rsync.
+* **Automation & Scripting:** Enterprise Bash (`set -Eeuo pipefail` standard), GNU Coreutils, `zstd`.
+* **Standards & Compliance Frameworks:** CIS Benchmarks, ISO/IEC 27001, NIST Cybersecurity Framework.
+
+---
+
+## 🚀 Installation and Usage
+
+1. Clone the repository onto the target server:
    ```bash
    git clone [https://github.com/yurialexanderpagelkruger/securaudit-360-framework.git](https://github.com/yurialexanderpagelkruger/securaudit-360-framework.git)
    cd securaudit-360-framework
 
-## 👨‍💻 Autor
+## 👨‍💻 Author
 
-Desarrollado por **Yuri Alexander Pagel Krüger**
+Developed by **Yuri Alexander Pagel Krüger**
